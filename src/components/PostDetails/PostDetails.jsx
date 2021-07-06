@@ -27,7 +27,7 @@ const Post = () => {
 
     if (!post) return null;
 
-    const openPost = (_id) => history.push(`posts/${_id}`);
+    const openPost = (_id) => history.push(`${_id}`);
 
     if (isLoading) {
         return (
@@ -66,7 +66,7 @@ const Post = () => {
                                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
                                 <Typography gutterBottom variant="subtitle2">{message}</Typography>
                                 <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography>
-                                <img src={selectedFile} alt="img" width="200px" />
+                                <img src={selectedFile || baseImg} alt="img" width="200px" />
                             </div>
                         ))}
                     </div>
