@@ -25,6 +25,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const logout = () => {
+      dispatch({ type: actionType.LOGOUT });
+
+      history.push("/home");
+
+      setUser(null);
+    };
     const token = user?.token;
 
     if (token) {
@@ -34,7 +41,7 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location, logout, user.token]);
+  }, [location, user.token, history, dispatch]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
